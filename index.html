@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>بوابة الثانوية العامة</h1>
+
+    <div class="container">
+
+        <img src="images/cat-kinkytwt.gif" class="gif" id="leftGif" alt="Left GIF">
+
+        <div class="result-box">
+
+            <input type="text" id="studentID" placeholder="رقم الجلوس">
+            <br><br>
+
+            <button onclick="checkResult()">اظهر النتيجة</button>
+
+            <h2 id="result"></h2>
+
+        </div>
+
+        <img src="images/cat-kinkytwt.gif" class="gif" id="rightGif" alt="Right GIF">
+
+    </div>
+
+    <script>
+
+        const students = {
+            "01210002703": {
+                name: "محمود احمد السيد جودة حمد",
+                percentage: "92%"
+            }
+        };
+
+        function checkResult() {
+
+            let id = document.getElementById("studentID").value;
+            let result = document.getElementById("result");
+
+            let leftGif = document.getElementById("leftGif");
+            let rightGif = document.getElementById("rightGif");
+
+            if (students[id]) {
+
+                result.innerHTML =
+                    "الاسم: " + students[id].name +
+                    "<br>النسبة: " + students[id].percentage;
+
+                leftGif.style.display = "block";
+                rightGif.style.display = "block";
+
+            } else {
+
+                result.innerHTML = "رقم الجلوس غير موجود";
+
+                leftGif.style.display = "none";
+                rightGif.style.display = "none";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
